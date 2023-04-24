@@ -1,0 +1,54 @@
+<div class="personTable">
+
+<table class="table">
+  <thead class="thead-dark">
+  <tr >
+    <th scope="col"></th>
+    <th scope="col">Комитеты</th>
+    <th scope="col">Люди</th>
+    <th scope="col">Handle</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let person of allPeople">
+    <th scope="row">
+      <button type="button" class="btn btn-danger" (click)="deletePerson(person.id)">Удалить</button>
+      <button type="button" class="btn btn-warning" (click)="isEditable = person.id">Измеить</button>
+    </th>
+    <td *ngIf="!(isEditable === person.id)">{{person.name}}</td>
+    <input id="editPersonName" *ngIf="isEditable === person.id" value="{{person.name}}" >
+    <td *ngIf="!(isEditable === person.id)">{{person.id}}</td>
+    <input id="editPersonid" *ngIf="(isEditable === person.id)" value="{{person.id}}" >
+    <td *ngIf="!(isEditable === person.id)">{{person.homeAddress}}</td>
+    <input id="editPersonAddress" *ngIf="(isEditable === person.id)" value="{{person.homeAddress}}" >
+<!--    <button type="button" class="btn btn-success" *ngIf="isEditable" (click)="editCommittee(committee.name, 'gdfgsd')">Сохранить</button>-->
+  </tr>
+  </tbody>
+</table>
+</div>
+
+<!--<button type="button" class="btn btn-success" (click)="createPerson('blabla')">Добавить</button>-->
+<div class="createPerson">
+  <div class="form-group col-md-6">
+    <label for="inputName">ФИО</label>
+    <input type="name" class="form-control" id="inputName" placeholder="ФИО" [(ngModel)]="name">
+  </div>
+  <div class="form-group col-md-6">
+    <label for="inputBirthDate">Дата рождения</label>
+    <input type="birthdate" class="form-control" id="inputBirthDate" placeholder="Дата рождения" [(ngModel)]="birthdate" >
+  </div>
+  <div class="form-group col-md-6">
+    <label for="inputhomeAddress">Адрес</label>
+    <input type="homeAddress" class="form-control" id="inputhomeAddress" placeholder="Адрес" [(ngModel)]="homeAddress">
+  </div>
+  <div class="form-group col-md-6">
+    <label for="inputscienceGrade">Научная степень</label>
+    <input type="scienceGrade" class="form-control" id="inputscienceGrade" placeholder="Научная степень" [(ngModel)]="scienceGrade">
+  </div>
+  <button type="submit" class="btn btn-primary" (click)="createPerson(name,birthdate, homeAddress, scienceGrade )">Подтвердить</button>
+</div>
+
+<!--<input type="smth"  name="createCommitteeInput" [(ngModel)]="smth"/>-->
+<!--<button  (click)="createPerson(smth)">Добавить</button>-->
+
+

@@ -10,16 +10,16 @@ const routes: Routes = [{
       loadChildren: () =>
         import('./pages/home/home.module').then((m) => m.HomeModule),
     },
-    // {
-    //   path: 'company',
-    //   loadChildren: () =>
-    //     import('./pages/company/company.module').then((m) => m.CompanyModule),
-    // },
-    // {
-    //   path: 'department',
-    //   loadChildren: () =>
-    //     import('./pages/department/department.module').then((m) => m.DepartmentModule),
-    // },
+    {
+      path: 'committee',
+      loadChildren: () =>
+        import('./pages/committee/committee.module').then((m) => m.CommitteeModule),
+    },
+    {
+      path: 'person',
+      loadChildren: () =>
+        import('./pages/person/person.module').then((m) => m.PersonModule),
+    },
     // {
     //   path: 'employee',
     //   loadChildren: () =>

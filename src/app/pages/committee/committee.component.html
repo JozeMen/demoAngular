@@ -1,0 +1,28 @@
+<div class="table">
+<table class="table">
+  <thead class="thead-dark">
+  <tr >
+    <th scope="col"></th>
+    <th scope="col">Комитеты</th>
+    <th scope="col">Люди</th>
+    <th scope="col">Handle</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let committee of allCommittees">
+    <th scope="row">
+      <button type="button" class="btn btn-danger" (click)="deleteCommittee(committee.name)">Удалить</button>
+      <button type="button" class="btn btn-warning" (click)="isEditable = committee.name">Измеить</button>
+    </th>
+    <td *ngIf="!(isEditable === committee.name)">{{committee.name}}</td>
+    <input type="newName" id="editComId" *ngIf="isEditable === committee.name" value="{{committee.name}}" [(ngModel)]="newName" >
+    <td ><p *ngFor="let person of committee.personDTOList">{{person.name}}</p></td>
+    <button type="button" class="btn btn-success" *ngIf="isEditable" (click)="editCommittee(committee.name, newName); ">Сохранить</button>
+  </tr>
+  </tbody>
+</table>
+
+
+<input type="smth"  name="createCommitteeInput" [(ngModel)]="smth"/>
+<button  (click)="createCommittee(smth)">Добавить</button>
+</div>
