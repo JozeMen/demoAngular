@@ -9,6 +9,8 @@ import { HeaderComponent } from './apearance/header/header.component';
 import {HeaderModule} from "./apearance/header/header.module";
 import { CommitteeComponent } from './pages/committee/committee.component';
 import { PersonComponent } from './pages/person/person.component';
+import { PaymentComponent } from './pages/payment/payment.component';
+import { ReceiptComponent } from './pages/receipt/receipt.component';
 
 @NgModule({
   declarations: [

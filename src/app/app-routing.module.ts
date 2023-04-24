@@ -20,16 +20,16 @@ const routes: Routes = [{
       loadChildren: () =>
         import('./pages/person/person.module').then((m) => m.PersonModule),
     },
-    // {
-    //   path: 'employee',
-    //   loadChildren: () =>
-    //     import('./pages/employee/employee.module').then((m) => m.EmployeeModule),
-    // },
-    // {
-    //   path: 'position',
-    //   loadChildren: () =>
-    //     import('./pages/position/position.module').then((m) => m.PositionModule),
-    // },
+    {
+      path: 'payment',
+      loadChildren: () =>
+        import('./pages/payment/payment.module').then((m) => m.PaymentModule),
+    },
+    {
+      path: 'receipt',
+      loadChildren: () =>
+        import('./pages/receipt/receipt.module').then((m) => m.ReceiptModule),
+    },
     // {
     //   path: 'operation',
     //   loadChildren: () =>

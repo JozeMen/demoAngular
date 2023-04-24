@@ -1,0 +1,24 @@
+<div class="personTable">
+
+  <table class="table">
+    <thead class="thead-dark">
+    <tr >
+      <th scope="col"></th>
+      <th scope="col">Комитеты</th>
+      <th scope="col">Люди</th>
+      <th scope="col">Handle</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let payment of allPayments">
+      <th scope="row">
+        <button type="button" class="btn btn-danger" (click)="deletePayment(payment.paymentId)">Удалить</button>
+        <button type="button" class="btn btn-warning" (click)="isEditable = payment.paymentId">Измеить</button>
+      </th>
+      <td *ngIf="!(isEditable === payment.paymentId)">{{payment.paymentId}}</td>
+      <input id="editPersonName" *ngIf="isEditable === payment.paymentId" value="{{payment.paymentId}}" >
+      <!--    <button type="button" class="btn btn-success" *ngIf="isEditable" (click)="editCommittee(committee.name, 'gdfgsd')">Сохранить</button>-->
+    </tr>
+    </tbody>
+  </table>
+</div>

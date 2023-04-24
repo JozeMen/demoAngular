@@ -1,0 +1,29 @@
+<p>receipt works!</p>
+<div class="receiptTable">
+
+  <table class="table">
+    <thead class="thead-dark">
+    <tr >
+      <th scope="col"></th>
+      <th scope="col">id</th>
+      <th scope="col">Сумма</th>
+      <th scope="col">Дата</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let receipt of allReceipts">
+      <th scope="row">
+        <button type="button" class="btn btn-danger" (click)="deleteReceipt(receipt.receiptId)">Удалить</button>
+        <button type="button" class="btn btn-warning" (click)="isEditable = receipt.receiptId">Измеить</button>
+      </th>
+      <td *ngIf="!(isEditable === receipt.receiptId)">{{receipt.receiptId}}</td>
+      <input id="editPersonName" *ngIf="isEditable === receipt.receiptId" value="{{receipt.receiptId}}" >
+      <td *ngIf="!(isEditable === receipt.receiptId)">{{receipt.sumOfMoney}}</td>
+      <input id="editPersonid" *ngIf="(isEditable === receipt.receiptId)" value="{{receipt.sumOfMoney}}" >
+      <td *ngIf="!(isEditable === receipt.receiptId)">{{receipt.writemDate}}</td>
+      <input id="editPersonAddress" *ngIf="(isEditable === receipt.receiptId)" value="{{receipt.writemDate}}" >
+      <!--    <button type="button" class="btn btn-success" *ngIf="isEditable" (click)="editCommittee(committee.name, 'gdfgsd')">Сохранить</button>-->
+    </tr>
+    </tbody>
+  </table>
+</div>

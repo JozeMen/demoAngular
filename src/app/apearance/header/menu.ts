@@ -7,23 +7,23 @@ export const menuData = [
   {
     routeLink: 'committee',
     icon: 'bx bx-book-open',
-    label: 'Компании'
+    label: 'Комитеты'
   },
   {
     routeLink: 'person',
     icon: 'bx bx-group',
-    label: 'Департаменты'
+    label: 'Люди'
   },
-  // {
-  //   routeLink: 'employee',
-  //   icon: 'bx bx-group',
-  //   label: 'Работники'
-  // },
-  // {
-  //   routeLink: 'position',
-  //   icon: 'bx bx-group',
-  //   label: 'Вакансии'
-  // },
+  {
+    routeLink: 'payment',
+    icon: 'bx bx-group',
+    label: 'История оплат'
+  },
+  {
+    routeLink: 'receipt',
+    icon: 'bx bx-group',
+    label: 'Квитанции'
+  },
   // {
   //   routeLink: 'operation',
   //   icon: 'bx bx-group',
