@@ -15,6 +15,11 @@ export class ReceiptComponent implements OnInit{
   isEditable!: number;
 
   smth!:string;
+
+
+  newreceiptId!: number;
+  newwritemDate!: Date;
+  newsumOfMoney!: number;
   constructor(private router: Router, private receiptService: ReceiptService) {
   }
 
@@ -45,6 +50,12 @@ export class ReceiptComponent implements OnInit{
 
   deleteReceipt(value: number) {
     this.receiptService.deleteReceipt(value).subscribe({
+      next: (data) => {}
+    })
+  }
+
+  createReceipt( value1: Date, value2:number) {
+    this.receiptService.createReceipt(value1, value2).subscribe({
       next: (data) => {}
     })
   }

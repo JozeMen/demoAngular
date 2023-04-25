@@ -27,3 +27,15 @@
     </tbody>
   </table>
 </div>
+
+<div class="createPerson">
+  <div class="form-group col-md-6">
+    <label for="inputBirthDate">Дата рождения</label>
+    <input type="newwritemDate" class="form-control" id="inputBirthDate" placeholder="Дата рождения" [(ngModel)]="newwritemDate" >
+  </div>
+  <div class="form-group col-md-6">
+    <label for="inputhomeAddress">Сумма</label>
+    <input type="newsumOfMoney" class="form-control" id="inputhomeAddress" placeholder="Адрес" [(ngModel)]="newsumOfMoney">
+  </div>
+  <button type="submit" class="btn btn-primary" (click)="createReceipt(newwritemDate, newsumOfMoney )">Подтвердить</button>
+</div>

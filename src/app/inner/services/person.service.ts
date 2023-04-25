@@ -3,13 +3,12 @@ import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {Router} from "@angular/router";
 import {Committee} from "../models/committee";
 import {Person} from "../models/person";
+import {Receipt} from "../models/receipt";
 
 const httpOptions = { headers: new HttpHeaders({    'Content-Type':  'application/json'  })};
 
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class PersonService {
   constructor(private http: HttpClient, private router: Router) { }
   private personUrl = 'http://localhost:8081/api/people';
@@ -27,20 +26,21 @@ export class PersonService {
       newName
     })
   }
-  public createPerson(name: string, birthdate: string, homeAddress: string, scienceGrade: string) {
-    return this.http.post<Person>(this.personUrl + "/" + "dada", {
-      name,
-      birthdate,
-      homeAddress,
-      scienceGrade
-    },
+
+  public createPerson( name1: string, name: string, birthdate: Date, homeAddress: string, scienceGrade: string) {
+    return this.http.post<Person>(this.personUrl + "/" + name1, {
+        name,
+        birthdate,
+        homeAddress,
+        scienceGrade
+      },
       {
         headers: new HttpHeaders({
           "Access-Control-Allow-Origin": "*"
 
         })
       }
-    )
+    );
   }
 
   public deletePersonById(name: number) {

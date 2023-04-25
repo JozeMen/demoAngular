@@ -16,13 +16,16 @@ export class PersonComponent implements OnInit{
   person!: Person;
   err: boolean = false;
   isEditable!: number;
+  committeeName!: string;
+  allCommittees!: Committee[];
 
   name!: string;
-  birthdate!: string;
+  birthdate!: Date;
   homeAddress!: string;
   scienceGrade!: string;
+  committee_nameIsReadable: boolean = false;
 
-  constructor(private router: Router, private personService: PersonService) {
+  constructor(private router: Router, private personService: PersonService, private committeeService: CommitteeService) {
   }
 
   onSelect(committee: Committee) {
@@ -38,14 +41,24 @@ export class PersonComponent implements OnInit{
         }
       }
     );
+
+    this.committeeService.getAllCommittee().subscribe({
+        next: (data) => {
+          this.allCommittees = data;
+        },
+        error: (err) => {
+          this.err = true;
+        }
+      }
+    );
   }
 
   editPerson(oldname: string,value: string) {
     this.personService.editPerson(oldname, value).subscribe({
     })
   }
-  createPerson(value: string, value1: string, value3: string, value4: string ) {
-    this.personService.createPerson(value, value1, value3, value4).subscribe({
+  createPerson(value5: string, value: string, value1: Date, value3: string, value4: string ) {
+    this.personService.createPerson(value5, value, value1, value3, value4).subscribe({
       next: (data) => {}
     })
   }

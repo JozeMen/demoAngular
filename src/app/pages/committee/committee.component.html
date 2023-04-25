@@ -15,14 +15,15 @@
       <button type="button" class="btn btn-warning" (click)="isEditable = committee.name">Измеить</button>
     </th>
     <td *ngIf="!(isEditable === committee.name)">{{committee.name}}</td>
-    <input type="newName" id="editComId" *ngIf="isEditable === committee.name" value="{{committee.name}}" [(ngModel)]="newName" >
+    <input type="newName" id="editComId" *ngIf="isEditable === committee.name"  [(ngModel)]="newName" placeholder="{{committee.name}}">
     <td ><p *ngFor="let person of committee.personDTOList">{{person.name}}</p></td>
-    <button type="button" class="btn btn-success" *ngIf="isEditable" (click)="editCommittee(committee.name, newName); ">Сохранить</button>
+    <button type="button" class="btn btn-success" *ngIf="isEditable === committee.name" (click)="editCommittee(committee.name, newName); ">Сохранить</button>
   </tr>
   </tbody>
 </table>
 
-
-<input type="smth"  name="createCommitteeInput" [(ngModel)]="smth"/>
-<button  (click)="createCommittee(smth)">Добавить</button>
+<div class="createCompany">
+  <input placeholder="Название комитета" type="smth"  name="createCommitteeInput" [(ngModel)]="smth"/>
+  <button  (click)="createCommittee(smth)">Добавить</button>
+</div>
 </div>

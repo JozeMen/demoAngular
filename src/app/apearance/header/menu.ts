@@ -12,7 +12,7 @@ export const menuData = [
   {
     routeLink: 'person',
     icon: 'bx bx-group',
-    label: 'Люди'
+    label: 'Участники конференции'
   },
   {
     routeLink: 'payment',

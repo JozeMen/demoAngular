@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from "@angular/common/http";
+import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {Router} from "@angular/router";
 import {Receipt} from "../models/receipt";
 
@@ -17,12 +17,19 @@ export class ReceiptService {
   //     newName
   //   })
   // }
-  // createCommittee(name: string) {
-  //   return this.http.post<Committee>(this.receiptUrl, {
-  //     name
-  //   })
-  // }
+  createReceipt( writemDate: Date, sumOfMoney: number) {
+    return this.http.post<Receipt>(this.receiptUrl, {
+      writemDate,
+      sumOfMoney
+    },
+      {
+        headers: new HttpHeaders({
+          "Access-Control-Allow-Origin": "*"
 
+        })
+      }
+    );
+  }
   deleteReceipt(id: number) {
     return this.http.delete<Receipt>(this.receiptUrl  + "/" + id )
   }

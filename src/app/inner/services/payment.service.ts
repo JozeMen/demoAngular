@@ -17,11 +17,11 @@ export class PaymentService {
   //     newName
   //   })
   // }
-  // createCommittee(name: string) {
-  //   return this.http.post<Committee>(this.paymentUrl, {
-  //     name
-  //   })
-  // }
+  createPayment(name: string) {
+    return this.http.post<Payment>(this.paymentUrl, {
+      name
+    })
+  }
 
   deleteCommittee(id: number) {
     return this.http.delete<Payment>(this.paymentUrl  + "/" + id )

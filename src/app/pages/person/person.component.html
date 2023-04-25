@@ -45,7 +45,11 @@
     <label for="inputscienceGrade">Научная степень</label>
     <input type="scienceGrade" class="form-control" id="inputscienceGrade" placeholder="Научная степень" [(ngModel)]="scienceGrade">
   </div>
-  <button type="submit" class="btn btn-primary" (click)="createPerson(name,birthdate, homeAddress, scienceGrade )">Подтвердить</button>
+  <label for="inputscienceGrade">Комитеты</label>
+  <select   type="committeeName" id="inputState" class="form-control" [(ngModel)]="committeeName">
+    <option selected *ngFor="let committee of allCommittees">{{committee.name}}</option>
+  </select>
+  <button type="submit" class="btn btn-primary" (click)="createPerson(committeeName, name,birthdate, homeAddress, scienceGrade )">Сохранить</button>
 </div>
 
 <!--<input type="smth"  name="createCommitteeInput" [(ngModel)]="smth"/>-->

@@ -21,5 +21,4 @@ import {ReceiptService} from "../../inner/services/receipt.service";
   ],
   providers: [ReceiptService]
 })
-
 export class ReceiptModule { }

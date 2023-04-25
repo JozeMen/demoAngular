@@ -21,6 +21,6 @@ import {PersonService} from "../../inner/services/person.service";
     ]),
     FormsModule
   ],
-  providers: [PersonService]
+  providers: [PersonService, CommitteeService]
 })
 export class PersonModule { }
