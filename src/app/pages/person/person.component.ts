@@ -53,8 +53,9 @@ export class PersonComponent implements OnInit{
     );
   }
 
-  editPerson(oldname: string,value: string) {
-    this.personService.editPerson(oldname, value).subscribe({
+  editPerson(value5: string, value: string, value1: Date, value3: string, value4: string) {
+    this.personService.editPerson(value5, value, value1, value3, value4).subscribe({
+      next: (data) => {}
     })
   }
   createPerson(value5: string, value: string, value1: Date, value3: string, value4: string ) {

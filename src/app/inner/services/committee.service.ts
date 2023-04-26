@@ -23,10 +23,15 @@ export class CommitteeService {
       newName
     })
   }
-  createCommittee(name: string) {
-    return this.http.post<Committee>(this.committeeUrl, {
-      name
-    })
+  createCommittee(name0: string, name: string) {
+    return this.http.post<Committee>(this.committeeUrl + "/" + name0, {
+        name
+    },
+      {
+        headers: new HttpHeaders({
+          "Access-Control-Allow-Origin": "*"
+        })
+      });
   }
 
   deleteCommittee(name: string) {

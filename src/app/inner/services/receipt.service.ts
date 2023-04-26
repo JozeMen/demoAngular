@@ -33,4 +33,5 @@ export class ReceiptService {
   deleteReceipt(id: number) {
     return this.http.delete<Receipt>(this.receiptUrl  + "/" + id )
   }
+  // editReceipt(writemDate: Date, sumOfMoney: number)
 }

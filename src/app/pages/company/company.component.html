@@ -1,0 +1,45 @@
+<section class="py-5 text-center container">
+  <div class="row py-lg-5">
+    <div class="col-lg-6 col-md-8 mx-auto">
+      <h1 class="fw-light">Компании</h1>
+      <p class="lead text-body-secondary">На данной странице отображены записи о компаниях и департаментах, входящих в них. Доступны функции добавления, удаления и редактирования данных о компании</p>
+      <p>
+        <button href="" class="btn btn-primary my-2" (click)="company_nameIsReadable= true">Добавить компанию</button>
+      </p>
+      <div class="createCompany">
+        <input type="newName" name="createCompanyName" class="company_name" placeholder="Название компании" *ngIf="company_nameIsReadable" [(ngModel)]="newName">
+        <button class="createCompany" *ngIf="company_nameIsReadable" (click)="createCompany(newName)">Сохранить</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="companies_menu" *ngFor="let company of companies" >
+  <div class="album py-5 bg-body-tertiary">
+    <div class="container">
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+        <div class="col">
+          <div class="card shadow-sm" >
+            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"></rect><text x="25%" y="50%" fill="#eceeef" dy=".3em" font-size="30">{{company.name}}</text></svg>
+            <div class="card-body" >
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                  <button type="button" class="btn btn-sm btn-outline-secondary" (click)="company_committeeAreWriteable= true">Показать</button>
+                  <button type="button" class="btn btn-sm btn-outline-secondary" (click)="isEditable= company.name">Изменить</button>
+                  <input type="newCompany" name="editCompany" id="editComId" *ngIf="isEditable === company.name" value="{{company.name}}" [(ngModel)]="newCompany">
+                  <button type="button" class="btn btn-sm btn-outline-secondary" (click)="deleteCompany(company.name)">Удалить</button>
+                  <button type="button" class="btn btn-sm btn-outline-secondary" *ngIf="isEditable === company.name" (click)="editCompany(company.name, newCompany)">Сохранить</button>
+                </div>
+                <div class="departments_names" *ngFor="let committee of company.committeeDTOList">
+                  <p class="card-text"  *ngIf="company_committeeAreWriteable">{{committee.name}}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+</div>

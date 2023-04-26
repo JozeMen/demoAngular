@@ -11,10 +11,13 @@ import { CommitteeComponent } from './pages/committee/committee.component';
 import { PersonComponent } from './pages/person/person.component';
 import { PaymentComponent } from './pages/payment/payment.component';
 import { ReceiptComponent } from './pages/receipt/receipt.component';
+import { CompanyComponent } from './pages/company/company.component';
+import {BodyComponent} from "./apearance/body/body.component";
 
 @NgModule({
   declarations: [
     AppComponent,
+    //BodyComponent
   ],
   imports: [
     BrowserModule,

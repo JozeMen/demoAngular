@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from "@angular/common/http";
+import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {Router} from "@angular/router";
 import {Payment} from "../models/payment";
 
@@ -17,10 +17,12 @@ export class PaymentService {
   //     newName
   //   })
   // }
-  createPayment(name: string) {
-    return this.http.post<Payment>(this.paymentUrl, {
-      name
-    })
+  createPayment(receiptId: number, payerId: number) {
+    return this.http.post<Payment>(`http://localhost:8081/api/payment/${receiptId}/${payerId}` , {}, {
+        headers: new HttpHeaders({
+          'Access-Control-Allow-Origin': '*'
+        })
+      })
   }
 
   deleteCommittee(id: number) {

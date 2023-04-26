@@ -1,3 +1,9 @@
+<div class="createCompany">
+  <input placeholder="Id платильщика комитета" type="newpayerId"  name="createCommitteeInput" [(ngModel)]="newpayerId"/>
+  <input placeholder="Id квитанции" type="newreceiptId"  name="createCommitteeInput" [(ngModel)]="newreceiptId"/>
+  <button  (click)="createPayment(newpayerId, newreceiptId)">Добавить</button>
+</div>
+
 <div class="personTable">
 
   <table class="table">

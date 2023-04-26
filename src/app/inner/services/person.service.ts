@@ -5,8 +5,6 @@ import {Committee} from "../models/committee";
 import {Person} from "../models/person";
 import {Receipt} from "../models/receipt";
 
-const httpOptions = { headers: new HttpHeaders({    'Content-Type':  'application/json'  })};
-
 
 @Injectable()
 export class PersonService {
@@ -19,12 +17,6 @@ export class PersonService {
 
   public getPerson(name: string) {
     return this.http.get<Person>(this.personUrl + "/" + name);
-  }
-
-  public editPerson(name: string, newName: string) {
-    return this.http.put<Person>(this.personUrl + "/" + name , {
-      newName
-    })
   }
 
   public createPerson( name1: string, name: string, birthdate: Date, homeAddress: string, scienceGrade: string) {
@@ -45,5 +37,19 @@ export class PersonService {
 
   public deletePersonById(name: number) {
     return this.http.delete<Person>(this.personUrl  + "/" + name)
+  }
+
+  public editPerson(name1: string, name: string, birthdate: Date, homeAddress: string, scienceGrade: string) {
+    return this.http.put<Person>(this.personUrl , {
+        name,
+        birthdate,
+        homeAddress,
+        scienceGrade
+    },
+      {
+        headers: new HttpHeaders({
+          "Access-Control-Allow-Origin": "*"
+        })
+      })
   }
 }

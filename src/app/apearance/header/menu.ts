@@ -5,6 +5,11 @@ export const menuData = [
     label: 'Главная'
   },
   {
+    routeLink: 'company',
+    icon: 'bx bx-group',
+    label: 'Компания'
+  },
+  {
     routeLink: 'committee',
     icon: 'bx bx-book-open',
     label: 'Комитеты'
@@ -24,9 +29,4 @@ export const menuData = [
     icon: 'bx bx-group',
     label: 'Квитанции'
   },
-  // {
-  //   routeLink: 'operation',
-  //   icon: 'bx bx-group',
-  //   label: 'История операций'
-  // }
 ];

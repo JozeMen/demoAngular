@@ -30,11 +30,11 @@ const routes: Routes = [{
       loadChildren: () =>
         import('./pages/receipt/receipt.module').then((m) => m.ReceiptModule),
     },
-    // {
-    //   path: 'operation',
-    //   loadChildren: () =>
-    //     import('./pages/operation/operation.module').then((m) => m.OperationModule),
-    // },
+    {
+      path: 'company',
+      loadChildren: () =>
+        import('./pages/company/company.module').then((m) => m.CompanyModule),
+    },
   ],
 }
 ];

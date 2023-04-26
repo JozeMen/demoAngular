@@ -16,6 +16,8 @@ export class PaymentComponent implements OnInit{
   isEditable!: number;
 
   paymentId!: number;
+  newpayerId!: number;
+  newreceiptId!: number;
 
   constructor(private router: Router, private paymentService: PaymentService) {
   }
@@ -39,11 +41,11 @@ export class PaymentComponent implements OnInit{
   //   this.paymentService.editPerson(oldname, value).subscribe({
   //   })
   // }
-  // createPerson(value: string, value1: string, value3: string, value4: string ) {
-  //   this.personService.createPerson(value, value1, value3, value4).subscribe({
-  //     next: (data) => {}
-  //   })
-  // }
+  createPayment(value: number, value1: number ) {
+    this.paymentService.createPayment(value, value1).subscribe({
+      next: (data) => {}
+    })
+  }
 
   deletePayment(value: number) {
     this.paymentService.deleteCommittee(value).subscribe({
