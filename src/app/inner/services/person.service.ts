@@ -39,8 +39,8 @@ export class PersonService {
     return this.http.delete<Person>(this.personUrl  + "/" + name)
   }
 
-  public editPerson(name1: string, name: string, birthdate: Date, homeAddress: string, scienceGrade: string) {
-    return this.http.put<Person>(this.personUrl , {
+  public editPerson(name1: number, name: string, birthdate: Date, homeAddress: string, scienceGrade: string) {
+    return this.http.put<Person>(this.personUrl + "/" + name1, {
         name,
         birthdate,
         homeAddress,

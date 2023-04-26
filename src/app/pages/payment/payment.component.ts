@@ -48,7 +48,7 @@ export class PaymentComponent implements OnInit{
   }
 
   deletePayment(value: number) {
-    this.paymentService.deleteCommittee(value).subscribe({
+    this.paymentService.deletePayment(value).subscribe({
       next: (data) => {}
     })
   }

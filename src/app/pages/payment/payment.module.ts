@@ -4,6 +4,8 @@ import {RouterModule} from "@angular/router";
 import {FormsModule} from "@angular/forms";
 import {PaymentComponent} from "./payment.component";
 import {PaymentService} from "../../inner/services/payment.service";
+import {PersonService} from "../../inner/services/person.service";
+import {ReceiptService} from "../../inner/services/receipt.service";
 
 
 

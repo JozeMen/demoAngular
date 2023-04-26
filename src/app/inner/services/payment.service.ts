@@ -11,21 +11,16 @@ export class PaymentService {
   public getAllPayments() {
     return this.http.get<Payment[]>(this.paymentUrl);
   }
-
-  // editCommittee(name: string, newName: string) {
-  //   return this.http.put(this.paymentUrl + "/" + name , {
-  //     newName
-  //   })
-  // }
   createPayment(receiptId: number, payerId: number) {
-    return this.http.post<Payment>(`http://localhost:8081/api/payment/${receiptId}/${payerId}` , {}, {
+    return this.http.post<Payment>(this.paymentUrl + `/${receiptId}/${payerId}` , {},{
         headers: new HttpHeaders({
-          'Access-Control-Allow-Origin': '*'
+          'Access-Control-Allow-Origin': '*',
+
         })
-      })
+      });
   }
 
-  deleteCommittee(id: number) {
+  deletePayment(id: number) {
     return this.http.delete<Payment>(this.paymentUrl  + "/" + id )
   }
 }

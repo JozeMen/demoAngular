@@ -4,9 +4,11 @@
   <thead class="thead-dark">
   <tr >
     <th scope="col"></th>
-    <th scope="col">Комитеты</th>
-    <th scope="col">Люди</th>
-    <th scope="col">Handle</th>
+    <th scope="col">id</th>
+    <th scope="col">ФИО</th>
+    <th scope="col">Дата рождения</th>
+    <th scope="col">Адрес</th>
+    <th scope="col">Ученая степень</th>
   </tr>
   </thead>
   <tbody>
@@ -15,13 +17,19 @@
       <button type="button" class="btn btn-danger" (click)="deletePerson(person.id)">Удалить</button>
       <button type="button" class="btn btn-warning" (click)="isEditable = person.id">Измеить</button>
     </th>
-    <td *ngIf="!(isEditable === person.id)">{{person.name}}</td>
-    <input id="editPersonName" *ngIf="isEditable === person.id" value="{{person.name}}" >
     <td *ngIf="!(isEditable === person.id)">{{person.id}}</td>
-    <input id="editPersonid" *ngIf="(isEditable === person.id)" value="{{person.id}}" >
+    <td *ngIf="!(isEditable === person.id)">{{person.name}}</td>
+    <input type="newname" id="editPersonName" *ngIf="isEditable === person.id" placeholder="ФИО" [(ngModel)]="newname">
+
+    <td *ngIf="!(isEditable === person.id)">{{person.birthdate}}</td>
+    <input type="newbirthdate" id="editPersonBirth" *ngIf="(isEditable === person.id)" placeholder="Дата рождения" [(ngModel)]="newbirthdate">
+
     <td *ngIf="!(isEditable === person.id)">{{person.homeAddress}}</td>
-    <input id="editPersonAddress" *ngIf="(isEditable === person.id)" value="{{person.homeAddress}}" >
-<!--    <button type="button" class="btn btn-success" *ngIf="isEditable" (click)="editCommittee(committee.name, 'gdfgsd')">Сохранить</button>-->
+    <input type="newhomeAddress" id="editPersonAddress" *ngIf="(isEditable === person.id)" placeholder="Адрес" [(ngModel)]="newhomeAddress">
+
+    <td *ngIf="!(isEditable === person.id)">{{person.scienceGrade}}</td>
+    <input type="newscienceGrade" id="editPersonid" *ngIf="(isEditable === person.id)" placeholder="Ученая степень" [(ngModel)]="newscienceGrade">
+    <button type="button" class="btn btn-success" *ngIf="isEditable === person.id" (click)="editPErson(person.id, name,birthdate, homeAddress, scienceGrade)">Сохранить</button>
   </tr>
   </tbody>
 </table>
@@ -51,6 +59,11 @@
   </select>
   <button type="submit" class="btn btn-primary" (click)="createPerson(committeeName, name,birthdate, homeAddress, scienceGrade )">Сохранить</button>
 </div>
+
+<!--<ng-container matColumnDef="birthdate">-->
+<!--  <mat-header-cell *matHeaderCellDef> Дата рождения </mat-header-cell>-->
+<!--  <mat-cell *matCellDef="let element"> {{element.birthdate | date: 'dd.MM.yyyy'}} </mat-cell>-->
+<!--</ng-container>-->
 
 <!--<input type="smth"  name="createCommitteeInput" [(ngModel)]="smth"/>-->
 <!--<button  (click)="createPerson(smth)">Добавить</button>-->

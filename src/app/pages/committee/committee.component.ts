@@ -21,8 +21,8 @@ export class CommitteeComponent implements OnInit{
   newName!: string;
   isEditable!: string;
   isCreatable: boolean = false;
-  companyName!: string;
   companies!: Company[];
+  companyName!: string;
   readyToCreateCommittee!: string;
   constructor(private router: Router, private committeeService: CommitteeService, private companyService: CompanyService) {
   }

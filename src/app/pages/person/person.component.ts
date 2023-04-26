@@ -23,6 +23,11 @@ export class PersonComponent implements OnInit{
   birthdate!: Date;
   homeAddress!: string;
   scienceGrade!: string;
+
+  newname!: string;
+  newbirthdate!: Date;
+  newhomeAddress!: string;
+  newscienceGrade!: string;
   committee_nameIsReadable: boolean = false;
 
   constructor(private router: Router, private personService: PersonService, private committeeService: CommitteeService) {
@@ -53,11 +58,6 @@ export class PersonComponent implements OnInit{
     );
   }
 
-  editPerson(value5: string, value: string, value1: Date, value3: string, value4: string) {
-    this.personService.editPerson(value5, value, value1, value3, value4).subscribe({
-      next: (data) => {}
-    })
-  }
   createPerson(value5: string, value: string, value1: Date, value3: string, value4: string ) {
     this.personService.createPerson(value5, value, value1, value3, value4).subscribe({
       next: (data) => {}
@@ -66,6 +66,11 @@ export class PersonComponent implements OnInit{
 
   deletePerson(value: number) {
     this.personService.deletePersonById(value).subscribe({
+      next: (data) => {}
+    })
+  }
+  editPErson(value5: number, value: string, value1: Date, value3: string, value4: string) {
+    this.personService.editPerson(value5, value, value1, value3, value4).subscribe({
       next: (data) => {}
     })
   }

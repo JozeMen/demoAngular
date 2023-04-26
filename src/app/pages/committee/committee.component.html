@@ -23,10 +23,11 @@
 </table>
 
 <div class="createCompany">
-  <input placeholder="Название комитета" type="smth"  name="createCommitteeInput" [(ngModel)]="smth"/>
-  <select   type="companyName" name="createCommittee" id="inputState" class="form-control" [(ngModel)]="companyName">
-    <option selected *ngFor="let company of companies">{{company.name}}</option>
-  </select>
+  <input type="smth" placeholder="Название комитета"   name="createCommitteeInput" [(ngModel)]="smth">
+<!--  <select   type="companyName" id="inputState" class="form-control" [(ngModel)]="companyName">-->
+<!--    <option selected *ngFor="let comp of companies">{{comp.name}}</option>-->
+<!--  </select>-->
+  <input type="companyName" placeholder="Название компании"   name="createCommitteeInput" [(ngModel)]="companyName">
   <button  (click)="createCommittee(companyName, smth)">Добавить</button>
 </div>
 </div>
